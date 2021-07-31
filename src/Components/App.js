@@ -5,6 +5,7 @@ import './App.css';
 import Header from '../Components/Header'
 import AddContacts from '../Components/AddContacts'
 import ContactsList from '../Components/ContactsList'
+import ContactDetails from '../Components/ContactDetails'
 
 function App() {
 const [contacts, setContacts] = useState([]);
@@ -65,6 +66,8 @@ useEffect(() =>{
               contactsHandler={contactsHandler}
               />
             )}/>  
+            <Route path="/ContactDetails/" component={ContactDetails}/>
+            {/* <Route path="/ContactDetails/id" component={ContactDetails}/> */}
         </Switch>
         
         {/* <AddContacts contactsHandler={contactsHandler}/> */}

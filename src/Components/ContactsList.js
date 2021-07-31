@@ -28,7 +28,7 @@ function ContactsList(props) {
         return <ContactCard
         key={contact.id}
         contactRemove = {contactRemoveHandler}
-         contacts={contact} />
+        contacts={contact} />
     })
     return (
         <div style={{position:'relative'}}>
