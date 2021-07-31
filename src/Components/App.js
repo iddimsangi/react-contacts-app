@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState, useEffect} from 'react'
 import { uuid } from 'uuidv4';
 import './App.css';
 import Header from '../Components/Header'
@@ -16,6 +16,18 @@ const deleteContactHandler = (id) =>{
 const contactsHandler = (contact)=>{
 setContacts([...contacts, {id:uuid(),...contact}]);
 }
+const LOCAL_STORAGE_KEY = 'contacts';
+useEffect(() =>{
+  const retrievedContacts = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts)));
+  if(retrievedContacts) setContacts(retrievedContacts);
+ },[]);
+
+//set or Add state to localStorage
+useEffect(() =>{
+  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts))
+},[contacts]);
+
+
   // const contacts = [
   //   {
   //     id:'1',
