@@ -11,11 +11,14 @@ export default class AddContacts extends Component {
             alert('All fields are mandatory');
             return
         }
-        console.log(this.state);
+        // console.log(this.state);
         this.setState({
             name:"",
             email:""
         })
+        // console.log(this.props);
+        //Programmatic Route
+        this.props.history.push("/")
         this.props.contactsHandler(this.state);
     } 
     render() {
