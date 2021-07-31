@@ -1,7 +1,7 @@
 import React from 'react'
 
 function ContactCard(props) {
-    const {id, name, email} = props.contacts
+    const {id, name, email} = props.contacts;
     return (
         <div>
             <div style={{marginTop:'20px', border:'1px solid #ccc', padding:'10px'}} class="ui relaxed divided list">

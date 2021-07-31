@@ -1,5 +1,6 @@
 import React from 'react'
 import ContactCard from './ContactCard'
+import { Button } from 'semantic-ui-react'
 function ContactsList(props) {
     const contactRemoveHandler = (id_contact) =>{
         props.deleteContact(id_contact);
@@ -29,8 +30,15 @@ function ContactsList(props) {
          contacts={contact} />
     })
     return (
-        <div >
-            {contactsRenders}
+        <div style={{position:'relative'}}>
+              <div>
+                    <Button color='blue' floated='right'>Add contact</Button>
+                    {/* <Button floated='left'>Left Floated</Button> */}
+              </div>
+              <div style={{paddingTop:'20px'}}>
+              {contactsRenders}
+              </div>
+          
         </div>
        
     )
