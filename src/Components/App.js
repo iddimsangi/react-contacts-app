@@ -1,4 +1,5 @@
-import React,{useState, useEffect} from 'react'
+import React,{ useState, useEffect } from 'react'
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { uuid } from 'uuidv4';
 import './App.css';
 import Header from '../Components/Header'
@@ -47,11 +48,15 @@ useEffect(() =>{
   // ]
   return (
     <div className="ui container">
-        <Header/>
-        <AddContacts contactsHandler={contactsHandler}/>
+      <Header/>
+      <Router>
+        <Route path="/Add" component={AddContacts}/>
+        {/* <AddContacts contactsHandler={contactsHandler}/> */}
         <ContactsList 
         deleteContact ={deleteContactHandler}
-        contactLst={contacts}/>     
+        contactLst={contacts}/>  
+      </Router>
+          
     </div>
   );
 }
