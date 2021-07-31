@@ -66,7 +66,7 @@ useEffect(() =>{
               contactsHandler={contactsHandler}
               />
             )}/>  
-            <Route path="/ContactDetails/" component={ContactDetails}/>
+            <Route path="/ContactDetails" component={ContactDetails}/>
             {/* <Route path="/ContactDetails/id" component={ContactDetails}/> */}
         </Switch>
         
