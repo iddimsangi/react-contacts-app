@@ -11,7 +11,9 @@ function ContactCard(props) {
                 <a class="header">{name}</a>
                 <div class="description">{email}</div>
                 </div>
-                <i class="trash alternate outline icon"></i>
+                <i 
+                onClick={() => props.contactRemove(id)}
+                class="trash alternate outline icon"></i>
                 </div>    
              </div>
         </div>

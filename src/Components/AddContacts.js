@@ -16,6 +16,7 @@ export default class AddContacts extends Component {
             name:"",
             email:""
         })
+        this.props.contactsHandler(this.state);
     } 
     render() {
         return (
