@@ -51,8 +51,20 @@ useEffect(() =>{
       <Header/>
       <Router>
         <Switch>
-            <Route path="/" exact component={ContactsList}/>
-            <Route path="/Add" component={AddContacts}/>  
+            {/* <Route path="/" exact component={ContactsList}/> */}
+            <Route path="/" exact render={(props) =>(
+              <ContactsList 
+              {...props} 
+              deleteContact ={deleteContactHandler}
+              contactLst={contacts}/>
+            )}/>
+
+            <Route path="/Add" render={(props) =>(
+              <AddContacts 
+              {...props}
+              contactsHandler={contactsHandler}
+              />
+            )}/>  
         </Switch>
         
         {/* <AddContacts contactsHandler={contactsHandler}/> */}
