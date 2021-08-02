@@ -16,8 +16,13 @@ const deleteContactHandler = (id) =>{
   })
   setContacts(updatedContacts)
 }
-const contactsHandler = (contact)=>{
-setContacts([...contacts, {id:uuid(),...contact}]);
+const contactsHandler = async(contact)=> {
+  const request = {
+    id:uuid(),
+    ...contact
+  }
+  const contactsPosted = await api.post("/contacts", request)
+setContacts([...contacts, contactsPosted.data]);
 }
 const retrieveContacts = async () =>{
   const response = await api.get("/contacts");
@@ -35,9 +40,9 @@ useEffect(() =>{
  },[]);
 
 //set or Add state to localStorage
-useEffect(() =>{
-  // localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts))
-},[contacts]);
+// useEffect(() =>{
+//   localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts))
+// },[contacts]);
 
 
   // const contacts = [
