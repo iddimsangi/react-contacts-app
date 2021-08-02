@@ -10,7 +10,7 @@ function ContactCard(props) {
                 <i class="large github middle aligned icon"></i>
                     <div class="content">
                     {/* <Link to="/ContactDetails"><a class="header">{name}</a></Link> */}
-                    <Link to={{pathname:`/ContactDetails/${id}`, state:{ contacts:props.contacts }}}><a class="header">{name}</a></Link>
+                    <Link to = {{pathname:`/ContactDetails/${id}`, state:{ contacts:props.contacts }}}><a class="header">{name}</a></Link>
                     <div class="description">{email}</div>
                     </div>              
                 <i                

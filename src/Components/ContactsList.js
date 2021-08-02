@@ -34,7 +34,7 @@ function ContactsList(props) {
         <div style={{position:'relative'}}>
               <div>
                   <Link to="/Add">
-                  <Button color='blue' floated='right'>Add contact</Button>
+                   <Button color='blue' floated='right'>Add contact</Button>
                   </Link>
                     
                     {/* <Button floated='left'>Left Floated</Button> */}
