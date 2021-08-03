@@ -12,10 +12,21 @@ function ContactCard(props) {
                     {/* <Link to="/ContactDetails"><a class="header">{name}</a></Link> */}
                     <Link to = {{pathname:`/ContactDetails/${id}`, state:{ contacts:props.contacts }}}><a class="header">{name}</a></Link>
                     <div class="description">{email}</div>
-                    </div>              
+                    </div> 
+                             
+               <div style={{float:'right'}}>
+               <Link to={{pathname:`/Edit`, state:{contacts:props.contacts }}}>
+               <i                
+            //    onClick={() => props.contactRemove(id)}
+                class="edit alternate outline icon">
+                </i>
+               </Link>
+
                 <i                
                onClick={() => props.contactRemove(id)}
-                class="trash alternate outline icon"></i>
+                class="trash alternate outline icon">
+                </i>
+               </div>
                 </div>  
               
                  

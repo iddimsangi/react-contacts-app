@@ -6,11 +6,13 @@ import Header from '../Components/Header'
 import AddContacts from '../Components/AddContacts'
 import ContactsList from '../Components/ContactsList'
 import ContactDetails from '../Components/ContactDetails'
+import UpdateContacts from '../Components/UpdateContacts'
 import api from '../Api/api';
 
 function App() {
 const [contacts, setContacts] = useState([]);
-const deleteContactHandler = (id) =>{
+const deleteContactHandler = async(id) =>{
+  await api.delete(`/contacts/${id}`)
   const updatedContacts = contacts.filter(contact =>{
     return contact.id !== id;
   })
@@ -22,7 +24,11 @@ const contactsHandler = async(contact)=> {
     ...contact
   }
   const contactsPosted = await api.post("/contacts", request)
-setContacts([...contacts, contactsPosted.data]);
+  console.log(contactsPosted);
+  setContacts([...contacts, contactsPosted.data]);
+}
+const updatecontactsHandler = () =>{
+  
 }
 const retrieveContacts = async () =>{
   const response = await api.get("/contacts");
@@ -81,6 +87,12 @@ useEffect(() =>{
               contactsHandler={contactsHandler}
               />
             )}/>  
+            <Route path="/Edit" render={(props) =>(
+              <UpdateContacts 
+              {...props}
+              contactsHandler={updatecontactsHandler}
+              />
+            )}/>
             <Route path="/ContactDetails" component={ContactDetails}/>
             {/* <Route path="/ContactDetails/id" component={ContactDetails}/> */}
         </Switch>

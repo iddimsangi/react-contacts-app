@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { Button, Checkbox, Form } from 'semantic-ui-react'
-export default class AddContacts extends Component {
+export default class UpdateContacts  extends Component {
     state = {
         name:"",
         email:""
     }
-    addContact = (e) => {
+    updateContact = (e) => {
         e.preventDefault();
         if(this.state.name === "" || this.state.email === ""){
             alert('All fields are mandatory');
@@ -25,8 +25,8 @@ export default class AddContacts extends Component {
     render() {
         return (
             <div style={{marginTop:'30px'}}>
-                <h2>Add Contact</h2>
-            <Form onSubmit={this.addContact}>
+                <h2>Update Contact</h2>
+            <Form onSubmit={this.updateContact}>
                 <Form.Field>
                 <label>First Name</label>
                 <input placeholder='First Name' 
@@ -42,7 +42,7 @@ export default class AddContacts extends Component {
                 <Form.Field>
                 <Checkbox label='I agree to the Terms and Conditions' />
                 </Form.Field>
-                <Button className="ui button blue" type='submit'>Submit</Button>
+                <Button className="ui button blue" type='submit'>Update</Button>
             </Form>
             </div>
         )
