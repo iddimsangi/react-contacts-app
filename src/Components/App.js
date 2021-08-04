@@ -27,18 +27,24 @@ const contactsHandler = async(contact)=> {
   console.log(contactsPosted);
   setContacts([...contacts, contactsPosted.data]);
 }
-const updatecontactsHandler = () =>{
-  
+const updatecontactsHandler = async(contact) => {
+const response = await api.put(`/contacts/${contact.id}`, contact);
+const{id, name, email } = response.data;
+setContacts(
+  contacts.map((contact) =>{
+  return contact.id === id ? {...response.data} : contact
+}));
+
 }
 const retrieveContacts = async () =>{
   const response = await api.get("/contacts");
   return response.data;
 }
-const LOCAL_STORAGE_KEY = 'contacts';
+// const LOCAL_STORAGE_KEY = 'contacts';
 useEffect(() =>{
   // const retrievedContacts = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts)));
   // if(retrievedContacts) setContacts(retrievedContacts);
-  const getAllContacts = async () =>{
+  const getAllContacts = async () => {
     const allContacts = await retrieveContacts();
     if(allContacts) setContacts(allContacts)
   }
@@ -90,7 +96,7 @@ useEffect(() =>{
             <Route path="/Edit" render={(props) =>(
               <UpdateContacts 
               {...props}
-              contactsHandler={updatecontactsHandler}
+              UpdatecontactsHandler={updatecontactsHandler}
               />
             )}/>
             <Route path="/ContactDetails" component={ContactDetails}/>

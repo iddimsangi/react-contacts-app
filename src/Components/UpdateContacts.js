@@ -1,10 +1,17 @@
 import React, { Component } from 'react'
 import { Button, Checkbox, Form } from 'semantic-ui-react'
 export default class UpdateContacts  extends Component {
-    state = {
-        name:"",
-        email:""
-    }
+ constructor(props){
+     super(props);
+     console.log(props);
+     const{id, name, email} = props.location.state.contacts;
+     this.state = {
+        id,
+        name,
+        email
+     }
+     
+ }
     updateContact = (e) => {
         e.preventDefault();
         if(this.state.name === "" || this.state.email === ""){
@@ -20,7 +27,7 @@ export default class UpdateContacts  extends Component {
         // console.log(this.props);
         //Programmatic Route
         this.props.history.push("/")
-        this.props.contactsHandler(this.state);
+        this.props.UpdatecontactsHandler(this.state);
     } 
     render() {
         return (
