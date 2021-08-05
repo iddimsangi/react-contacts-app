@@ -1,6 +1,6 @@
 import React from 'react'
 import ContactCard from './ContactCard'
-import { Button } from 'semantic-ui-react'
+import { Button,  Input } from 'semantic-ui-react'
 import { Link } from "react-router-dom";
 function ContactsList(props) {
     const contactRemoveHandler = (id_contact) =>{
@@ -32,15 +32,21 @@ function ContactsList(props) {
     })
     return (
         <div style={{position:'relative'}}>
-            
-              <div>
-                  
+           
+           
+              <div>  
+              <div style={{width:'40%', left:'25%'}} class="ui icon input">
+               <input type="text" placeholder="Search..."/>
+               <i aria-hidden="true" class="search icon"></i>
+            </div>
+              {/* <Input icon='search' placeholder='Search...' />                */}
                   <Link to="/Add">
                    <Button color='blue' floated='right'>Add contact</Button>
                   </Link>
                     
                     {/* <Button floated='left'>Left Floated</Button> */}
               </div>
+
               <div style={{paddingTop:'20px'}}>
               {contactsRenders}
               </div>
