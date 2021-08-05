@@ -11,12 +11,27 @@ import api from '../Api/api';
 
 function App() {
 const [contacts, setContacts] = useState([]);
+const[searchTerm, setSearchTerm] = useState("");
+const[searchTermResult, setSearchTermResult] = useState([]);
 const deleteContactHandler = async(id) =>{
   await api.delete(`/contacts/${id}`)
   const updatedContacts = contacts.filter(contact =>{
     return contact.id !== id;
   })
   setContacts(updatedContacts)
+}
+const searchKeyWordHandler = (searchValue) =>{
+  setSearchTerm(searchValue);
+console.log(searchValue);
+if(searchValue !== ""){
+  const newSearchVal = contacts.filter(contact =>{
+  return Object.values(contact).join("").toLowerCase().includes(searchValue.toLowerCase());         
+  });
+// console.log(newSearchVal)
+setSearchTermResult(newSearchVal)
+}else{
+  setSearchTermResult(contacts)
+}
 }
 const contactsHandler = async(contact)=> {
   const request = {
@@ -84,7 +99,9 @@ useEffect(() =>{
               <ContactsList 
               {...props} 
               deleteContact ={deleteContactHandler}
-              contactLst={contacts}/>
+              term = {searchTerm}
+              searchKeyWord = { searchKeyWordHandler }
+              contactLst={searchTerm.length < 1 ? contacts : searchTermResult}/>
             )}/>
 
             <Route path="/Add" render={(props) =>(

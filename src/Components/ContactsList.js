@@ -1,12 +1,16 @@
-import React from 'react'
+import React,{useRef} from 'react'
 import ContactCard from './ContactCard'
-import { Button,  Input } from 'semantic-ui-react'
+import { Button } from 'semantic-ui-react'
 import { Link } from "react-router-dom";
 function ContactsList(props) {
+    const inpEl = useRef("");
     const contactRemoveHandler = (id_contact) =>{
         props.deleteContact(id_contact);
     }
-
+    const getInputs = () =>{
+        // console.log(inpEl.current.value);
+        props.searchKeyWord(inpEl.current.value)
+    }
     // const contactLst = [
     //     {
     //       id:'1',
@@ -36,7 +40,13 @@ function ContactsList(props) {
            
               <div>  
               <div style={{width:'40%', left:'25%'}} class="ui icon input">
-               <input type="text" placeholder="Search..."/>
+               <input 
+               ref={inpEl}
+               type="text" 
+               placeholder="Search..."
+               value={props.term}
+               onChange={getInputs}
+               />
                <i aria-hidden="true" class="search icon"></i>
             </div>
               {/* <Input icon='search' placeholder='Search...' />                */}
