@@ -32,7 +32,9 @@ function ContactsList(props) {
     })
     return (
         <div style={{position:'relative'}}>
+            
               <div>
+                  
                   <Link to="/Add">
                    <Button color='blue' floated='right'>Add contact</Button>
                   </Link>
