@@ -3,7 +3,7 @@ import ContactCard from './ContactCard'
 import { Button } from 'semantic-ui-react'
 import { Link } from "react-router-dom";
 function ContactsList(props) {
-    const inpEl = useRef("");
+    const inpEl = useRef("")
     const contactRemoveHandler = (id_contact) =>{
         props.deleteContact(id_contact);
     }
@@ -35,9 +35,7 @@ function ContactsList(props) {
         contacts={contact} />
     })
     return (
-        <div style={{position:'relative'}}>
-           
-           
+        <div style={{position:'relative'}}>    
               <div>  
               <div style={{width:'40%', left:'25%'}} class="ui icon input">
                <input 

@@ -17,7 +17,7 @@ function ContactCard(props) {
                <div style={{float:'right'}}>
                <Link to={{pathname:`/Edit`, state:{contacts:props.contacts }}}>
                <i                
-            //    onClick={() => props.contactRemove(id)}
+            //onClick={() => props.contactRemove(id)}
                 class="edit alternate outline icon">
                 </i>
                </Link>
