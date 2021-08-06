@@ -9,9 +9,9 @@ export default class UpdateContacts  extends Component {
         id,
         name,
         email
-     }
-     
+     }    
  }
+ 
     updateContact = (e) => {
         e.preventDefault();
         if(this.state.name === "" || this.state.email === ""){
@@ -32,7 +32,7 @@ export default class UpdateContacts  extends Component {
     render() {
         return (
             <div style={{marginTop:'30px'}}>
-                <h2>Update Contact</h2>
+                <h2 style={{textTransform:'uppercase'}}>Update Contact</h2>
             <Form onSubmit={this.updateContact}>
                 <Form.Field>
                 <label>First Name</label>

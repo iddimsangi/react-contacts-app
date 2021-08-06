@@ -2,13 +2,9 @@ import React from 'react'
 
 export default function Header() {
     return (
-        <div style={{marginBottom:'52px'}} className="ui hidden divider">
-         <div className="ui fixed menu">
-            <div className="ui container center">
-                <h2>Contact Manager</h2>
+        <div class="ui segment">
+            <h3 style={{textTransform:'uppercase',fontSize:'30px'}} className="ui center aligned header">Contact Management</h3>
             </div>
-        </div>
-        </div>
     )
 }
 

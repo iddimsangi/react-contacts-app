@@ -25,7 +25,7 @@ export default class AddContacts extends Component {
     render() {
         return (
             <div style={{marginTop:'30px'}}>
-                <h2>Add Contact</h2>
+                <h2 style={{textTransform:'uppercase'}}>Add Contact</h2>
             <Form onSubmit={this.addContact}>
                 <Form.Field>
                 <label>First Name</label>

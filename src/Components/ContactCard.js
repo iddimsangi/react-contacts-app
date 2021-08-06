@@ -27,9 +27,7 @@ function ContactCard(props) {
                 class="trash alternate outline icon">
                 </i>
                </div>
-                </div>  
-              
-                 
+                </div>              
              </div>
         </div>
     )

@@ -21,7 +21,7 @@ const deleteContactHandler = async(id) =>{
   setContacts(updatedContacts)
 }
 const searchKeyWordHandler = (searchValue) =>{
-  setSearchTerm(searchValue);
+setSearchTerm(searchValue);
 console.log(searchValue);
 if(searchValue !== ""){
   const newSearchVal = contacts.filter(contact =>{
