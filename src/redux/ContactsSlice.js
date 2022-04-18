@@ -1,4 +1,9 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import api from "../Api/api";
+export const getContacts = createAsyncThunk("contactsAsyc", async () => {
+  const response = await api.get("/contacts");
+  return response.data;
+});
 
 const initialState = [];
 
@@ -8,6 +13,11 @@ const ContactsSlice = createSlice({
   reducers: {
     addContacts: (state, action) => {
       state.push(action.payload);
+    },
+  },
+  extraReducers: {
+    [getContacts.fulfilled]: (state, action) => {
+      return action.payload;
     },
   },
 });
